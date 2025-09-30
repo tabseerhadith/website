@@ -13,7 +13,6 @@ collections.forEach((collection) => {
     book.chapters.forEach((chapter) => {
       chapter.hadiths?.forEach((hadith) => {
         if(hadith.id  > 10000 ) {
-          // console.log(hadith);
         }
         const hadithRoute = `/${tmp}/hadith/${hadith.id}`;
         routes.push(hadithRoute);
