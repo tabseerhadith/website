@@ -1,8 +1,7 @@
-import collections from "$lib/collections";
+export const load = async () => {
+  const url = await fetch("https://api.tabsirhadith.com/books/1/chapters");
+  const data = await url.json();
+  console.log(data,'bru');
 
-export const load = async ({ params }) => {
-  let collection = collections.find((x) => x.name === params.collection);
-  collection = collection?.books || [];
-  let chapters = collection?.find((x) => x.name === params.book).chapters;
-  return { chapters };
+  return { data };
 };
