@@ -18,10 +18,10 @@ const kekw = [
 export const load = async ({ params }) => {
   const collection = kekw.find((x) => x.name === params.collection);
   const id = collection?.id || 1;
-  console.log(id)
 
   const url = await fetch(`https://api.tabsirhadith.com/collections/${id}/books`);
   const data = await url.json();
+  const sorted  = data.sort((a, b) => a.visible_id - b.visible_id);
 
-  return { data };
+  return { data:sorted };
 };
