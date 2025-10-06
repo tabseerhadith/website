@@ -1,7 +1,9 @@
-export const load = async () => {
-  const url = await fetch("https://api.tabsirhadith.com/books/1/chapters");
-  const data = await url.json();
-  console.log(data,'bru');
+export const load = async ({params}) => {
+
+  const id = params.book
+  const url = `https://api.tabsirhadith.com/books/${id}/chapters`
+  const resp = await fetch(url);
+  const data = await resp.json();
 
   return { data };
 };

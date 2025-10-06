@@ -1,34 +1,38 @@
-<!-- <script lang="ts"> -->
-<!--   let { params, data } = $props(); -->
-<!-- </script> -->
-<!---->
-<!-- <div class="grid gap20"> -->
-<!--   {#each data.chapters as chapter, index} -->
-<!--     <section class="grid gap5"> -->
-<!--       <p class="text-xl brd p5 rounded frow"> -->
-<!--         <i class="i-lets-icons:book"></i> -->
-<!--         {chapter.name} -->
-<!--       </p> -->
-<!---->
-<!--       {#each chapter.hadiths as hadith} -->
-<!--         <div -->
-<!--           class="grid-(~ cols-[1fr_auto_1fr] gap5) bg-secondary p5 rounded leading-loose" -->
-<!--         > -->
-<!--           <div class="grid gap3 h-fit"> -->
-<!--             {@html hadith.english_text} -->
-<!--           </div> -->
-<!--           <div class="brd"></div> -->
-<!--           <div class="arabic_txt">{@html hadith.arabic_text}</div> -->
-<!--           <button -->
-<!--             aria-labelledby='bookmark' -->
-<!--             class="btn-secondary-eqmd bg-border hover:bg-border/80 rounded-full w-fit" -->
-<!--           > -->
-<!--             <i class="i-mingcute:bookmark-line"></i> -->
-<!--           </button> -->
-<!--         </div> -->
-<!--       {/each} -->
-<!--     </section> -->
-<!--   {/each} -->
-<!-- </div> -->
+<script lang="ts">
+  let { params, data :kekw} = $props();
+  const { data} = kekw
 
-kekw bro
+</script>
+
+<div class="grid gap20">
+  {#await data}
+    <p class="skeleton">hi</p>
+  {:then data}
+    {#each data as chapter, index}
+      <section class="grid gap5">
+        <p class="text-xl brd p5 rounded frow">
+          <i class="i-lets-icons:book"></i>
+          {chapter.name}
+        </p>
+
+        {#each chapter.hadiths as hadith}
+          <div
+            class="grid-(~ cols-[1fr_auto_1fr] gap5) bg-secondary p5 rounded leading-loose"
+          >
+            <div class="grid gap3 h-fit">
+              {@html hadith.english_text}
+            </div>
+            <div class="brd"></div>
+            <div class="arabic_txt">{@html hadith.arabic_text}</div>
+            <button
+              aria-labelledby="bookmark"
+              class="btn-secondary-eqmd bg-border hover:bg-border/80 rounded-full w-fit"
+            >
+              <i class="i-mingcute:bookmark-line"></i>
+            </button>
+          </div>
+        {/each}
+      </section>
+    {/each}
+  {/await}
+</div>

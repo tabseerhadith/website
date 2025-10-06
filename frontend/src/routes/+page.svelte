@@ -54,8 +54,8 @@
     <Input class="mx-auto grinput-solid-xl" placeholder="Search..." iconL="i-gg:search" />
   </section>
 
-  <div class="grid-(~ cols-2) gap5 ">
-    <section class="grid-(~ cols-2) gap5">
+  <div class="grid lg:grid-cols-2 gap5 ">
+    <section class="grid md:grid-cols-2 gap5">
       {#each leftSide as x}
         <a
           class="text-xl grid gap3 brd rounded p6 gap3 hover:brd-primary"
