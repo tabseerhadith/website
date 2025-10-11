@@ -43,7 +43,7 @@
     </div>
   </button>
 
-  <button class="btn-primary rounded-full" onclick={login}>
+  <button class="btn-primary" onclick={login}>
     <i class="i-hugeicons:login-circle-01"></i>
     Login
   </button>
