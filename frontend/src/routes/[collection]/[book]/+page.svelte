@@ -1,14 +1,14 @@
 <script lang="ts">
-  let { params, data :kekw} = $props();
-  const { data} = kekw
-
+  let { params, data } = $props();
+  const { chapters } = data;
+  import Loader from "$lib/ui/loaders/chapters.svelte";
 </script>
 
-<div class="grid gap20">
-  {#await data}
-    <p class="skeleton">hi</p>
-  {:then data}
-    {#each data as chapter, index}
+<div class="grid gap20 max-w-[1000px] mx-auto p10">
+  {#await chapters}
+    <Loader />
+  {:then chapters}
+    {#each chapters as chapter}
       <section class="grid gap5">
         <p class="text-xl brd p5 rounded frow">
           <i class="i-lets-icons:book"></i>
